@@ -1,0 +1,5 @@
+disassembler
+*.o
+*~
+*.mem
+*.ys
