@@ -23,10 +23,10 @@ file.
 
 
 STUDENT  1
-Name :
-St. No:
-Unix Id :
-Email:
+Name : Aurlin Dhillon
+St. No: 37055134
+Unix Id : c0f0b		
+Email: aurlindhillon@gmail.com
 
 
 STUDENT  2
