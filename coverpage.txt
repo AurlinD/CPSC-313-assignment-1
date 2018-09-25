@@ -30,10 +30,10 @@ Email: aurlindhillon@gmail.com
 
 
 STUDENT  2
-Name :
-St. No:
-Unix Id :
-Email:
+Name : Steven Gao
+St. No: 16902141
+Unix Id : e1d0b
+Email: sgao1996@gmail.com
 
 
 ACKNOWLEDGMENTS, COMMENTS AND CITATIONS :
