@@ -109,9 +109,8 @@ int readMemFile(FILE * machineCode, FILE * outputFile, int currAddr) {
     switch (iCode) {
       //halt case
       case 0:
-        if (iFun != 0) {
-          goto default_case;
-        }
+        // invalid, handle in default
+        if (iFun != 0) goto default_case;
 
         if (!first) {
           if (consecutiveHalt == 0) {
@@ -127,9 +126,8 @@ int readMemFile(FILE * machineCode, FILE * outputFile, int currAddr) {
       case 1:
         handlePos(outputFile, currAddr, first, consecutiveHalt);
 
-        if (iFun != 0) {
-          goto default_case;
-        }
+        // invalid, handle in default
+        if (iFun != 0) goto default_case;
 
         first = false;
         consecutiveHalt = 0;
@@ -152,9 +150,8 @@ int readMemFile(FILE * machineCode, FILE * outputFile, int currAddr) {
         valA = workingInstruction[1] >> 4 & 0xF;
         valB = workingInstruction[1] & 0xF;
 
-        if (iFun < 0 || iFun > 6 || valA == 0xF || valB == 0xF) {
-          goto default_case;
-        }
+        // invalid, handle in default
+        if (iFun < 0 || iFun > 6 || valA == 0xF || valB == 0xF) goto default_case;
 
         fprintf(outputFile, "    %-8s %s, %s                    # 0x2%i%x%x\n", cmovXX[iFun], reg[valA], reg[valB], iFun, valA, valB);
         break;
@@ -175,9 +172,8 @@ int readMemFile(FILE * machineCode, FILE * outputFile, int currAddr) {
         fread(workingInstruction, 1, 8, machineCode);
         memcpy(&valC, workingInstruction, sizeof(long));
 
-        if (iFun != 0 || valA != 0xF || valB == 0xF) {
-          goto default_case;
-        }
+        // invalid, handle in default
+        if (iFun != 0 || valA != 0xF || valB == 0xF) goto default_case;
 
         fprintf(outputFile, "    %-8s $0x%llx, %s                    # 0x30f%x", instructions[iCode], valC, reg[valB], valB);
 
@@ -202,9 +198,8 @@ int readMemFile(FILE * machineCode, FILE * outputFile, int currAddr) {
         fread(workingInstruction, 1, 8, machineCode);
         memcpy(&valC, workingInstruction, sizeof(long));
 
-        if (iFun != 0 || valA == 0xF || valB == 0xF) {
-          goto default_case;
-        }
+        // invalid, handle in default
+        if (iFun != 0 || valA == 0xF || valB == 0xF) goto default_case;
 
         fprintf(outputFile, "    %-8s %s, 0x%llx(%s)                    # 0x40%x%x", instructions[iCode], reg[valA], valC, reg[valB], valA, valB);
 
@@ -228,9 +223,8 @@ int readMemFile(FILE * machineCode, FILE * outputFile, int currAddr) {
         fread(workingInstruction, 1, 8, machineCode);
         memcpy(&valC, workingInstruction, sizeof(long));
 
-        if (iFun != 0 || valA == 0xF || valB == 0xF) {
-          goto default_case;
-        }
+        // invalid, handle in default
+        if (iFun != 0 || valA == 0xF || valB == 0xF) goto default_case;
 
         fprintf(outputFile, "    %-8s 0x%llx(%s), %s                    # 0x50%x%x", instructions[iCode], valC, reg[valB], reg[valA], valA, valB);
 
@@ -250,9 +244,8 @@ int readMemFile(FILE * machineCode, FILE * outputFile, int currAddr) {
         valA = workingInstruction[1] >> 4 & 0xF;
         valB = workingInstruction[1] & 0xF;
 
-        if (iFun < 0 || iFun > 6 || valA == 0xF || valB == 0xF) {
-          goto default_case;
-        }
+        // invalid, handle in default
+        if (iFun < 0 || iFun > 6 || valA == 0xF || valB == 0xF) goto default_case;
 
         fprintf(outputFile, "    %-8s %s, %s                    # 0x6%i%x%x\n", OPq[iFun], reg[valA], reg[valB], iFun, valA, valB);
         break;
@@ -267,13 +260,11 @@ int readMemFile(FILE * machineCode, FILE * outputFile, int currAddr) {
         fseek(machineCode, -1, SEEK_CUR);
         currByte = fread(workingInstruction, 1, 1, machineCode);
 
-
         fread(workingInstruction, 1, 8, machineCode);
         memcpy(&valC, workingInstruction, sizeof(long));
 
-        if (iFun < 0 || iFun > 6) {
-          goto default_case;
-        }
+        // invalid, handle in default
+        if (iFun < 0 || iFun > 6) goto default_case;
 
         fprintf(outputFile, "    %-8s 0x%llx                    # 0x7%x", jXX[iFun], valC, iFun);
 
@@ -293,9 +284,8 @@ int readMemFile(FILE * machineCode, FILE * outputFile, int currAddr) {
         fread(workingInstruction, 1, 8, machineCode);
         memcpy(&valC, workingInstruction, sizeof(long));
 
-        if (iFun != 0) {
-          goto default_case;
-        }
+        // invalid, handle in default
+        if (iFun != 0) goto default_case;
 
         fprintf(outputFile, "    %-8s 0x%llx                    # 0x80", instructions[iCode], valC);
 
@@ -312,9 +302,8 @@ int readMemFile(FILE * machineCode, FILE * outputFile, int currAddr) {
         fseek(machineCode, -1, SEEK_CUR);
         currByte = fread(workingInstruction, 1, 1, machineCode);
 
-        if (iFun != 0) {
-          goto default_case;
-        }
+        // invalid, handle in default
+        if (iFun != 0) goto default_case;
 
         fprintf(outputFile, "    %-8s                    # 0x90\n", instructions[iCode]);
         break;
@@ -332,9 +321,8 @@ int readMemFile(FILE * machineCode, FILE * outputFile, int currAddr) {
         valA = workingInstruction[1] >> 4 & 0xF;
         valB = workingInstruction[1] & 0xF;
 
-        if (iFun != 0 || valA == 0xF || valB == 0xF) {
-          goto default_case;
-        }
+        // invalid, handle in default
+        if (iFun != 0 || valA == 0xF || valB == 0xF) goto default_case;
 
         fprintf(outputFile, "    %-8s %s                    # 0xa0%xf\n", instructions[iCode], reg[valA], valA);
         break;
@@ -352,9 +340,8 @@ int readMemFile(FILE * machineCode, FILE * outputFile, int currAddr) {
         valA = workingInstruction[1] >> 4 & 0xF;
         valB = workingInstruction[1] & 0xF;
 
-        if (iFun != 0 || valA == 0xF || valB == 0xF) {
-          goto default_case;
-        }
+        // invalid, handle in default
+        if (iFun != 0 || valA == 0xF || valB == 0xF) goto default_case;
 
         fprintf(outputFile, "    %-8s %s                    # 0xb0%xf\n", instructions[iCode], reg[valA], valA);
         break;
