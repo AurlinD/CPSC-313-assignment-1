@@ -1,42 +1,42 @@
-*** Grade before late penalty: [/54]
+*** Grade before late penalty: [35/54]
 
 
-[/2] Compiles without warnings   
+[0/2] Compiles without warnings   
 
 
-[/16] Instruction Identification - This section is to see if 
+[14/16] Instruction Identification - This section is to see if 
       the instructions were properly identified based on the 
       icode and ifun values. 
 
-        [/1] Halt
-        [/1] NOP
-        [/1] rrmovq
-        [/1] irmovq
-        [/1] rmmovq
-        [/1] mrmovq
-        [/2] arithmetic operations
+        [1/1] Halt
+        [1/1] NOP
+        [1/1] rrmovq
+        [1/1] irmovq
+        [1/1] rmmovq
+        [1/1] mrmovq
+        [2/2] arithmetic operations
              2 marks if all of them, 1 if got some
                but not all of them.
-        [/2] jumps         
+        [2/2] jumps         
              2 marks if all of them, 1 if got some
                but not all of them.
-        [/1] call
-        [/1] ret
-        [/1] pushq
-        [/1] popq
-        [/2] conditional move instructions
+        [1/1] call
+        [1/1] ret
+        [0/1] pushq
+        [0/1] popq
+        [2/2] conditional move instructions
              2 marks if all of them, 1 if got some
                but not all of them.
 
-[/9] Instruction decoding
+[9/9] Instruction decoding
 
-       [/3] Decoded rA and rB values appropriately. 
+       [3/3] Decoded rA and rB values appropriately. 
             - 2 marks for properly identifying instructions that 
                 have rA and rB parts. -1 if misidentified some
                 instructions or missed them. 1 mark for properly 
                 getting the rA and rB values
 
-       [/4] valC 
+       [4/4] valC 
             - 2 marks for properly identifying instructions with a
               valC part. -1 if misidentified some instructions or
               missed them. 
@@ -45,41 +45,41 @@
             - 1 mark for getting the individual bytes correct (e.g.,
               little endian, long).
 
-       [/2] File pointer advanced properly for all instructions. 
+       [2/2] File pointer advanced properly for all instructions. 
           
 
-[/15]  Non-instruction sequence
+[11/14]  Non-instruction sequence
 
-       [/2] 2nd nibble (fcode) of instructions halt, nop, rrmovq, irmovq,
+       [2/2] 2nd nibble (fcode) of instructions halt, nop, rrmovq, irmovq, # failed: 
             rmovq, mrmovq, call, ret, pushq, and popq must be 0
             -1 for each different instruction that doesn't meet this 
                requirement upto -2
 
-       [/2] identifies invalid function code for jumps, conditional moves,
+       [2/2] identifies invalid function code for jumps, conditional moves, # failed: 
             and math operations
             -1 for each different instruction that doesn't meet this 
                requirement upto -2
 
-       [/1] Can handle case when not enough bytes in file to determine the
+       [0/1] Can handle case when not enough bytes in file to determine the # failed: 03_rrmovq.mem
             rA and rB values of an instructions
 
-       [/1] Can handle case when not enough bytes in file to determine the
+       [0/1] Can handle case when not enough bytes in file to determine the # failed: 04_irmovq2.mem, 04_irmovq1.mem
             valC value
                 
-       [/4] Properly handles invalid instruction or registers,
+       [4/4] Properly handles invalid instruction or registers,
             printing quad or byte as appropriate
             - 2 marks for deciding if quad or byte should be printed
             - 1 mark for correctly writing the value of them
             - 1 mark for properly moving on to the next address
 
-       [/1] Ignores halts after another halt
+       [0/1] Ignores halts after another halt # failed: 06_rrmovq_halt.mem
 
-       [/1] Properly finds the first non-zero byte and prints value for
+       [1/1] Properly finds the first non-zero byte and prints value for # failed: 
             .pos accordingly
 
-       [/1] Properly writes .pos after a few consecutive halts
+       [1/1] Properly writes .pos after a few consecutive halts # failed: 
 
-       [/1] In case the third argument is present, starts from the given
+       [1/1] In case the third argument is present, starts from the given # failed: 
             address
 
         
@@ -106,6 +106,6 @@
    
 --------------------
 
-[/1] Filled in Cover Page
+[1/1] Filled in Cover Page
 
 -----------------------------------
