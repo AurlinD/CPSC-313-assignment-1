@@ -1,4 +1,4 @@
-*** Grade before late penalty: [35/54]
+*** Grade before late penalty: [47/54]
 
 
 [0/2] Compiles without warnings   
@@ -83,21 +83,21 @@
             address
 
         
-[/12] Code style and implementation
+[12/12] Code style and implementation
 
-       [/2] Reasonable decomposition into functions
+       [2/2] Reasonable decomposition into functions
  
-       [/2] Avoids excessive code repetition
+       [2/2] Avoids excessive code repetition
        
-       [/1] Comments explaining what the code does
+       [1/1] Comments explaining what the code does
  
-       [/2] Style with respect to indentation, line and function length
+       [2/2] Style with respect to indentation, line and function length
  
-       [/1] Appropriate names for functions, variables, parameters
+       [1/1] Appropriate names for functions, variables, parameters
  
-       [/2] Reasonable choice of algorithms and approach to handling the problem
+       [2/2] Reasonable choice of algorithms and approach to handling the problem
  
-       [/2] Misc - You get full marks here unless the marker has added
+       [2/2] Misc - You get full marks here unless the marker has added
             comments below and indicated why you lost marks. The purpose
             of this mark category is for the marker to deduct points for
             problems/issues with your assignment that are not properly
