@@ -60,10 +60,10 @@
             -1 for each different instruction that doesn't meet this 
                requirement upto -2
 
-       [0/1] Can handle case when not enough bytes in file to determine the # failed: 03_rrmovq.mem
+       [0/1] Can handle case when not enough bytes in file to determine the # failed: 03_rrmovq.mem # failed: 03_rrmovq.mem
             rA and rB values of an instructions
 
-       [0/1] Can handle case when not enough bytes in file to determine the # failed: 04_irmovq2.mem, 04_irmovq1.mem
+       [0/1] Can handle case when not enough bytes in file to determine the # failed: 04_irmovq2.mem, 04_irmovq1.mem # failed: 04_irmovq2.mem, 04_irmovq1.mem
             valC value
                 
        [4/4] Properly handles invalid instruction or registers,
@@ -72,7 +72,7 @@
             - 1 mark for correctly writing the value of them
             - 1 mark for properly moving on to the next address
 
-       [0/1] Ignores halts after another halt # failed: 06_rrmovq_halt.mem
+       [0/1] Ignores halts after another halt # failed: 06_rrmovq_halt.mem # failed: 06_rrmovq_halt.mem
 
        [1/1] Properly finds the first non-zero byte and prints value for # failed: 
             .pos accordingly
