@@ -1,4 +1,5 @@
 *** Grade before late penalty: [47/54]
+    ***Total after 100.0% late penalty is 0.0
 
 
 [0/2] Compiles without warnings   
@@ -109,3 +110,4 @@
 [1/1] Filled in Cover Page
 
 -----------------------------------
+
